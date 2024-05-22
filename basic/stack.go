@@ -60,6 +60,15 @@ func (s *Stack) Pop() error {
 	return nil
 }
 
+// 返回栈顶的值，不弹出
+func (s *Stack) Top() (interface{}, error) {
+	if s.IsEmpty() {
+		return nil, fmt.Errorf("The stack is empty!")
+	}
+	return s.array[s.top], nil
+
+}
+
 // 弹出栈顶的值并返回
 func (s *Stack) TopAndPop() (interface{}, error) {
 	if s.IsEmpty() {

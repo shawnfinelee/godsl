@@ -8,11 +8,11 @@ const (
 	STACK_LENGTH = 5
 )
 
-var (
-	err        error
-	data       interface{}
-	funcStatus bool
-)
+// var (
+// 	err        error
+// 	data       interface{}
+// 	funcStatus bool
+// )
 
 func Test_Stack(t *testing.T) {
 	s := NewStack(STACK_LENGTH)
@@ -43,6 +43,13 @@ func Test_Stack(t *testing.T) {
 		t.Log("  Push success!")
 	} else {
 		t.Error("  Push error!")
+	}
+
+	data, err = s.Top()
+	if data == "test...1" && err == nil && top == 0 && fs == 4 {
+		t.Log("  Top success!")
+	} else {
+		t.Error("  Top error!")
 	}
 
 	err = s.Pop()
